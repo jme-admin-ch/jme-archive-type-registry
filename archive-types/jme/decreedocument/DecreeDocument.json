@@ -1,0 +1,14 @@
+{
+  "archiveType": "DecreeDocument",
+  "system": "JME",
+  "referenceIdType": "ch.admin.bit.jeap.audit.type.JmeDecreeDocumentArtifact",
+  "description": "archive type example for a decree document",
+  "documentationUrl": "https://foo/bar",
+  "expirationDays": 30,
+  "versions": [
+    {
+      "version": 1,
+      "schema": "DecreeDocument_v1.avdl"
+    }
+  ]
+}

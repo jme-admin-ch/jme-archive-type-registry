@@ -1,0 +1,40 @@
+publiccodeYmlVersion: 0.4.0
+name: jme-archive-type-registry
+applicationSuite: JME
+softwareVersion: 1.0.0
+releaseDate: 2026-07-03
+url: "https://github.com/jme-admin-ch/jme-archive-type-registry.git"
+landingURL: "https://github.com/jme-admin-ch/jme"
+platforms:
+  - web
+categories:
+  - application-development
+developmentStatus: stable
+softwareType: standalone/backend
+organisation:
+  uri: https://ld.admin.ch/office/V.1.7
+  name: Federal Office of Information Technology, Systems and Telecommunication
+description:
+  en:
+    localisedName: jme-archive-type-registry
+    shortDescription: Structured schema registry for JME archive data types
+    longDescription: >
+      JME Archive Type Registry is a structured Git repository for managing archive data schemas.
+      It keeps published archive types immutable, supports Avro-based schema definitions, and enables
+      generated Java bindings and build-time validation for archive data handled by the Process Archive Service.
+    features:
+      - Structured management of JME archive type schemas
+      - Immutable published archive type definitions
+      - Avro schema support with generated Java bindings
+      - Build-time registry validation
+legal:
+  license: Apache-2.0
+maintenance:
+  type: internal
+  contacts:
+    - name: Federal Office of Information Technology, Systems and Telecommunication FOITT
+      email: jeap-community@bit.admin.ch
+localisation:
+  localisationReady: false
+  availableLanguages:
+    - en

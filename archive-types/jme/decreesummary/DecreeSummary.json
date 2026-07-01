@@ -1,0 +1,14 @@
+{
+  "archiveType": "DecreeSummary",
+  "system": "JME",
+  "referenceIdType": "ch.admin.bit.jeap.audit.type.JmeDecreeSummaryArtifact",
+  "description": "archive type example for a decree summary, archived as a second artifact of the same domain event as the decree",
+  "documentationUrl": "https://foo/bar",
+  "expirationDays": 30,
+  "versions": [
+    {
+      "version": 1,
+      "schema": "DecreeSummary_v1.avdl"
+    }
+  ]
+}

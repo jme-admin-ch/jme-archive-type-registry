@@ -1,0 +1,10 @@
+@namespace("ch.admin.bit.jeap.processarchive.test.diagram.v1")
+protocol DiagramProtocol {
+
+	record Diagram {
+		string id;
+		string name;
+		string graph;
+		int version;
+	}
+}

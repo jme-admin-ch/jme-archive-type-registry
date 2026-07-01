@@ -1,0 +1,14 @@
+{
+  "archiveType": "Diagram",
+  "system": "JME",
+  "referenceIdType": "ch.admin.bit.jeap.audit.type.JmeDiagramArtifact",
+  "description": "archive type example for a diagram",
+  "documentationUrl": "https://foo/bar",
+  "expirationDays": 1,
+  "versions": [
+    {
+      "version": 1,
+      "schema": "Diagram_v1.avdl"
+    }
+  ]
+}

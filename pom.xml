@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <url>https://github.com/jeap-admin-ch/jme-archive-type-registry/tree/main</url>
+    <scm>
+        <url>https://github.com/jeap-admin-ch/jme-archive-type-registry/tree/master.git</url>
+        <connection>scm:git:git://github.com/jeap-admin-ch/jme-archive-type-registry.git</connection>
+        <developerConnection>scm:git:ssh://github.com:jeap-admin-ch/jme-archive-type-registry.git</developerConnection>
+    </scm>
+    <developers>
+        <developer>
+            <name>BIT</name>
+            <email>jeap-community@bit.admin.ch</email>
+            <organization>Federal Office of Information Technology, Systems and Telecommunication FOITT</organization>
+            <organizationUrl>https://www.bit.admin.ch/</organizationUrl>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+
+    <parent>
+        <groupId>ch.admin.bit.jeap</groupId>
+        <artifactId>jeap-spring-boot-parent</artifactId>
+        <version>36.2.0</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>ch.admin.bit.jme</groupId>
+    <artifactId>jme-archive-type-registry</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <jeap-process-archive-service.version>13.2.0</jeap-process-archive-service.version>
+        <jeap.archivetypes.compile.skip>false</jeap.archivetypes.compile.skip>
+        <!-- Do not deploy the pom artifact for jme-archive-type-registry, this pom is only used to control the build -->
+        <maven.deploy.skip>true</maven.deploy.skip>
+        <avro.version>1.12.0</avro.version>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- Add license entry to jar manifest -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <configuration>
+                        <archive>
+                            <manifestEntries>
+                                <Bundle-License>https://www.apache.org/licenses/LICENSE-2.0</Bundle-License>
+                            </manifestEntries>
+                        </archive>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <!-- Check third-party license compliance -->
+            <plugin>
+                <groupId>org.honton.chas</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+            </plugin>
+            <!-- Generate third-party license list -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>ch.admin.bit.jeap</groupId>
+                <artifactId>jeap-process-archive-type-registry-maven-plugin</artifactId>
+                <version>${jeap-process-archive-service.version}</version>
+                <configuration>
+                    <gitUrl>https://github.com/jme-admin-ch/jme-archive-type-registry</gitUrl>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>registry</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>io.github.git-commit-id</groupId>
+                <artifactId>git-commit-id-maven-plugin</artifactId>
+                <configuration>
+                    <skipPoms>false</skipPoms>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>ch.admin.bit.jeap</groupId>
+                <artifactId>jeap-process-archive-avro-maven-plugin</artifactId>
+                <version>${jeap-process-archive-service.version}</version>
+                <executions>
+                    <execution>
+                        <!-- Disable default execution from parent -->
+                        <phase>none</phase>
+                    </execution>
+                    <execution>
+                        <id>compile-archive-types</id>
+                        <goals>
+                            <goal>compile-archive-types</goal>
+                        </goals>
+                        <configuration>
+                            <generateAllArchiveTypes>false</generateAllArchiveTypes>
+                            <gitUrl>https://github.com/jme-admin-ch/jme-archive-type-registry</gitUrl>
+                            <groupIdPrefix>ch.admin.bit.jme.archivetype</groupIdPrefix>
+                            <trunkBranchName>main</trunkBranchName>
+                            <enableDecimalLogicalType>true</enableDecimalLogicalType>
+                            <skip>${jeap.archivetypes.compile.skip}</skip>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>deploy-archive-type-artifacts</id>
+                        <goals>
+                            <goal>deploy-archive-type-artifacts</goal>
+                        </goals>
+                        <configuration>
+                            <mavenDeployGoal>deploy</mavenDeployGoal>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
