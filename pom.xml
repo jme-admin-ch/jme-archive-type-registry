@@ -37,7 +37,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <jeap-process-archive-service.version>16.1.1</jeap-process-archive-service.version>
+        <jeap-process-archive-service.version>16.2.0</jeap-process-archive-service.version>
         <jeap.archivetypes.compile.skip>false</jeap.archivetypes.compile.skip>
         <!-- Do not deploy the pom artifact for jme-archive-type-registry, this pom is only used to control the build -->
         <maven.deploy.skip>true</maven.deploy.skip>
@@ -77,6 +77,7 @@
                 <artifactId>jeap-process-archive-type-registry-maven-plugin</artifactId>
                 <version>${jeap-process-archive-service.version}</version>
                 <configuration>
+                    <trunkBranchName>main</trunkBranchName>
                     <gitUrl>https://github.com/jme-admin-ch/jme-archive-type-registry</gitUrl>
                 </configuration>
                 <executions>
