@@ -37,7 +37,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <jeap-process-archive-service.version>17.2.0</jeap-process-archive-service.version>
+        <jeap-process-archive-service.version>18.0.0</jeap-process-archive-service.version>
         <jeap.archivetypes.compile.skip>false</jeap.archivetypes.compile.skip>
         <!-- Do not deploy the pom artifact for jme-archive-type-registry, this pom is only used to control the build -->
         <maven.deploy.skip>true</maven.deploy.skip>
