@@ -118,6 +118,7 @@
                             <trunkBranchName>main</trunkBranchName>
                             <enableDecimalLogicalType>true</enableDecimalLogicalType>
                             <skip>${jeap.archivetypes.compile.skip}</skip>
+                            <pomTemplateFile>archivetype.template.pom.xml</pomTemplateFile>
                         </configuration>
                     </execution>
                     <execution>
