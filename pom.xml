@@ -112,9 +112,9 @@
                             <goal>compile-archive-types</goal>
                         </goals>
                         <configuration>
-                            <generateAllArchiveTypes>false</generateAllArchiveTypes>
+                            <generateAllArchiveTypes>true</generateAllArchiveTypes>
                             <gitUrl>https://github.com/jme-admin-ch/jme-archive-type-registry</gitUrl>
-                            <groupIdPrefix>ch.admin.bit.jme.archivetype</groupIdPrefix>
+                            <groupIdPrefix>ch.admin.bit.jeap.jme.archivetype</groupIdPrefix>
                             <trunkBranchName>main</trunkBranchName>
                             <enableDecimalLogicalType>true</enableDecimalLogicalType>
                             <skip>${jeap.archivetypes.compile.skip}</skip>
